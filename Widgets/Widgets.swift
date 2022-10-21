@@ -97,7 +97,7 @@ struct CircularComplication: View {
     
     var mgCaffeine: Double
     var totalCups: Double
-    let maxMG = 500.0
+    let maxMG = 250.0
     
     var body: some View {
         Gauge( value: min(mgCaffeine, maxMG), in: 0.0...maxMG ) {
@@ -115,7 +115,7 @@ struct CircularComplication: View {
         }
         .gaugeStyle(
             // Add a gradient to the gauge.
-            CircularGaugeStyle(tint: .black)
+            CircularGaugeStyle(tint: .red)
         )
     }
 }
@@ -127,8 +127,6 @@ struct WidgetsEntryView : View {
     @Environment(\.widgetFamily) private var family
     
     var body: some View {
-        Text(entry.date, style: .time)
-        
         switch family {
         case .accessoryCircular:
             CircularComplication(
@@ -163,7 +161,13 @@ struct Widgets: Widget {
 
 struct Widgets_Previews: PreviewProvider {
     static var previews: some View {
-        WidgetsEntryView(entry: CoffeeTrackerEntry(date: .now, mgCaffeine: 40.0, totalCups: 0.75))
+        WidgetsEntryView(
+            entry: CoffeeTrackerEntry(
+                date: .now,
+                mgCaffeine: 40.0,
+                totalCups: 0.75
+            )
+        )
             .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }
