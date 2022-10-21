@@ -43,9 +43,11 @@ struct Provider: TimelineProvider {
             let totalCups = 0.5
             
             // Create the entry.
-            let entry = GlucoseEntry(date: date,
-                                    mgCaffeine: mgCaffeine,
-                                    totalCups: totalCups)
+            let entry = GlucoseEntry(
+                date: date,
+                mgCaffeine: mgCaffeine,
+                totalCups: totalCups
+            )
             
             // Pass the entry to the completion handler.
             completion(entry)
