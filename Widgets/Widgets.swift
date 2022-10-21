@@ -15,7 +15,7 @@ struct Provider: TimelineProvider {
                            mgCaffeine: 250.0,
                            totalCups: 2.0)
     }
-
+    
     func getSnapshot(in context: Context, completion: @escaping (CoffeeTrackerEntry) -> Void) {
         
         if context.isPreview {
@@ -156,18 +156,5 @@ struct Widgets: Widget {
         .configurationDisplayName("Loop Data By David")
         .description("This is an example widget.")
         .supportedFamilies([.accessoryCircular]) // TODO: Add support for remaining families
-    }
-}
-
-struct Widgets_Previews: PreviewProvider {
-    static var previews: some View {
-        WidgetsEntryView(
-            entry: CoffeeTrackerEntry(
-                date: .now,
-                mgCaffeine: 40.0,
-                totalCups: 0.75
-            )
-        )
-            .previewContext(WidgetPreviewContext(family: .accessoryRectangular))
     }
 }
