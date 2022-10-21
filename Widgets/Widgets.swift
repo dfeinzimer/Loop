@@ -16,13 +16,17 @@ struct Provider: TimelineProvider {
                            totalCups: 2.0)
     }
     
-    func getSnapshot(in context: Context, completion: @escaping (GlucoseEntry) -> Void) {
-        
+    func getSnapshot(
+        in context: Context,
+        completion: @escaping (GlucoseEntry) -> Void
+    ) {
         if context.isPreview {
             // Show a complication with generic data.
-            let entry = GlucoseEntry(date: Date(),
-                        mgCaffeine: 250.0,
-                        totalCups: 2.0)
+            let entry = GlucoseEntry(
+                date: Date(),
+                mgCaffeine: 250.0,
+                totalCups: 2.0
+            )
             
             completion(entry)
             return
@@ -45,17 +49,19 @@ struct Provider: TimelineProvider {
             completion(entry)
         }
     }
-
-    func getTimeline(in context: Context, completion: @escaping (Timeline<Entry>) -> Void) {
+    
+    func getTimeline(
+        in context: Context,
+        completion: @escaping (Timeline<Entry>) -> Void
+    ) {
         Task {
-
             // Create an array to hold the events.
             var entries: [GlucoseEntry] = []
             
             // The total number of cups consumed only changes when the user actively adds a drink,
             // so it remains constant in this timeline.
             let totalCups = 0.5
-
+            
             // Generate a timeline covering every 5 minutes for the next 24 hours.
             let currentDate = Date()
             for minuteOffset in stride(from: 0, to: 60 * 24, by: 5) {
