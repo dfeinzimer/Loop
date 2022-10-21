@@ -6,8 +6,8 @@
 //  Copyright © 2022 LoopKit Authors. All rights reserved.
 //
 
-import WidgetKit
 import SwiftUI
+import WidgetKit
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> GlucoseEntry {
