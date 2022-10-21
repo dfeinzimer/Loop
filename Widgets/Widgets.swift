@@ -10,17 +10,17 @@ import WidgetKit
 import SwiftUI
 
 struct Provider: TimelineProvider {
-    func placeholder(in context: Context) -> CoffeeTrackerEntry {
-        CoffeeTrackerEntry(date: Date(),
+    func placeholder(in context: Context) -> GlucoseEntry {
+        GlucoseEntry(date: Date(),
                            mgCaffeine: 250.0,
                            totalCups: 2.0)
     }
     
-    func getSnapshot(in context: Context, completion: @escaping (CoffeeTrackerEntry) -> Void) {
+    func getSnapshot(in context: Context, completion: @escaping (GlucoseEntry) -> Void) {
         
         if context.isPreview {
             // Show a complication with generic data.
-            let entry = CoffeeTrackerEntry(date: Date(),
+            let entry = GlucoseEntry(date: Date(),
                         mgCaffeine: 250.0,
                         totalCups: 2.0)
             
@@ -37,7 +37,7 @@ struct Provider: TimelineProvider {
             let totalCups = 0.5
             
             // Create the entry.
-            let entry = CoffeeTrackerEntry(date: date,
+            let entry = GlucoseEntry(date: date,
                                     mgCaffeine: mgCaffeine,
                                     totalCups: totalCups)
             
@@ -50,7 +50,7 @@ struct Provider: TimelineProvider {
         Task {
 
             // Create an array to hold the events.
-            var entries: [CoffeeTrackerEntry] = []
+            var entries: [GlucoseEntry] = []
             
             // The total number of cups consumed only changes when the user actively adds a drink,
             // so it remains constant in this timeline.
@@ -65,14 +65,16 @@ struct Provider: TimelineProvider {
                 let mgCaffeine = 100.0
                 
                 // Create the entry.
-                let entry = CoffeeTrackerEntry(date: entryDate,
-                                               mgCaffeine: mgCaffeine,
-                                               totalCups: totalCups)
+                let entry = GlucoseEntry(
+                    date: entryDate,
+                    mgCaffeine: mgCaffeine,
+                    totalCups: totalCups
+                )
                 
                 // Add the event to the array.
                 entries.append(entry)
             }
-
+            
             // Create the timeline and pass it to the completion handler.
             // Because the caffeine dose drops to 0.0 mg after 24 hours,
             // there's no need to reload this timeline unless the user adds
@@ -85,10 +87,14 @@ struct Provider: TimelineProvider {
     }
 }
 
-struct CoffeeTrackerEntry: TimelineEntry {
+struct GlucoseEntry: TimelineEntry {
     let date: Date
     let mgCaffeine: Double
     let totalCups: Double
+    
+    let glucoseAndTrendText = "120↘︎"
+    let glucoseText = "120"
+    let timeText = "3MIN"
 }
 
 struct CircularComplication: View {
