@@ -4501,7 +4501,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com..loopkit.Loop.LoopWatch.watchkitextension.Widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.T358L9CKU3.loopkit.Loop.LoopWatch.watchkitextension.widgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -4548,7 +4548,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com..loopkit.Loop.LoopWatch.watchkitextension.Widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = com.T358L9CKU3.loopkit.Loop.LoopWatch.watchkitextension.widgetExtension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
