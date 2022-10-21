@@ -11,9 +11,11 @@ import SwiftUI
 
 struct Provider: TimelineProvider {
     func placeholder(in context: Context) -> GlucoseEntry {
-        GlucoseEntry(date: Date(),
-                           mgCaffeine: 250.0,
-                           totalCups: 2.0)
+        GlucoseEntry(
+            date: Date(),
+            mgCaffeine: 250.0,
+            totalCups: 2.0
+        )
     }
     
     func getSnapshot(
