@@ -159,8 +159,8 @@ struct Widgets: Widget {
         StaticConfiguration(kind: kind, provider: Provider()) { entry in
             WidgetsEntryView(entry: entry)
         }
-        .configurationDisplayName("Loop Data By David")
-        .description("This is an example widget.")
+        .configurationDisplayName("Loop Glucose Data")
+        .description("Latest glucose data via Loop")
         .supportedFamilies([.accessoryCircular]) // TODO: Add support for remaining families
     }
 }
