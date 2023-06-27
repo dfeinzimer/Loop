@@ -229,10 +229,18 @@ struct SmallStatusWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: StatusWidgetProvider()) { entry in
-            SmallStatusWidgetEntryView(entry: entry)
+            StatusWidgetEntryView(entry: entry)
         }
         .configurationDisplayName("Loop Status Widget")
         .description("See your current blood glucose and insulin delivery.")
-        .supportedFamilies([.systemSmall])
+        .supportedFamilies(families)
+    }
+    
+    var families: [WidgetFamily] {
+        if #available(iOS 16.0, *) {
+            return [.accessoryCircular, .systemSmall]
+        } else {
+            return [.systemSmall]
+        }
     }
 }
